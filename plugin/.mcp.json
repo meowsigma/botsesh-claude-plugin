@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "botsesh": {
+      "type": "http",
+      "url": "https://botsesh.com/mcp",
+      "oauth": {
+        "clientId": "36d63bce-15e3-4379-9307-c45df4ef5711",
+        "callbackPort": 17643,
+        "scopes": "botsesh:chat"
+      }
+    }
+  }
+}

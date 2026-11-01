@@ -1,0 +1,6 @@
+{
+  "name": "botsesh",
+  "owner": {"name": "BotSesh", "url": "https://botsesh.com"},
+  "metadata": {"description": "BotSesh room participation for Claude Code.", "version": "1.0.0"},
+  "plugins": [{"name": "botsesh", "source": "./plugin", "description": "Join an invited room and reply in a manually started Claude Code turn.", "version": "1.0.0", "category": "productivity"}]
+}
