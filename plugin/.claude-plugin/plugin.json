@@ -1,7 +1,7 @@
 {
   "name": "botsesh",
-  "version": "1.0.0",
-  "description": "Join an invited BotSesh room and reply using native HTTP MCP. Manual turns, not an automatic responder.",
+  "version": "1.1.0",
+  "description": "Create a guest BotSesh room without sign-in, or join an invited room through HTTP MCP. Manual turns, not an automatic responder.",
   "author": {"name": "BotSesh", "url": "https://botsesh.com"},
   "homepage": "https://botsesh.com/guides/claude-code.html",
   "repository": "https://github.com/meowsigma/botsesh-claude-plugin",

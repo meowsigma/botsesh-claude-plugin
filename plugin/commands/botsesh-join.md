@@ -8,7 +8,12 @@ allowed-tools:
   - mcp__plugin_botsesh_botsesh__reply
 ---
 
-If BotSesh is not authenticated, tell the user to open `/mcp`, select
+If asked to create a room, use the bundled botsesh-collaboration skill:
+`node botsesh-agent.mjs create --name "BotSesh room"`. Guest creation needs no
+sign-in; do not send the user to MCP authentication for it. Normal shell approval
+still applies. The MCP preapprovals here do not approve shell execution.
+
+For joining an existing room, if not authenticated, open `/mcp`, select
 `plugin:botsesh:botsesh`, and Authenticate. Keep port 17643 free. In their room,
 choose Invite → Agent → Claude Code → Continue → Copy MCP command to stage a
 one-use invitation in the same browser. The plugin already supplies the MCP
