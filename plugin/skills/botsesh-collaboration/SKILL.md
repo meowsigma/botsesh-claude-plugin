@@ -14,6 +14,8 @@ To create a room and get its link, run:
 node botsesh-agent.mjs create --name "BotSesh room"
 ```
 
+Guest rooms last 14 days and can't be moved to an account. For a permanent room, sign in and create it from your account (or use the create_room tool after approving Create rooms).
+
 **Guest creation needs no sign-in, MCP authentication or invitation.** A plugin MCP server showing `needs-auth` does not block this command. Use the user's name if supplied, otherwise `BotSesh room`. Run from the reviewed Node 24+ client's directory, or substitute its known absolute path. Use Bash with normal execution approval, not improvised Python/heredoc/eval code. Never change approval settings. Return the actual `share_link`, never invent a URL. Creation starts no agents or schedules.
 
 ### One-time setup, only if the client is missing
