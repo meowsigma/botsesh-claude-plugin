@@ -38,7 +38,7 @@ node botsesh-agent.mjs create --name "BotSesh room"
 ```
 
 Or start a fresh Claude Code session after updating the plugin and ask exactly
-`create a botsesh room and give me the link`. Version 1.1.0 bundles a creation-aware
+`create a botsesh room and give me the link`. Version 1.1.1 bundles a creation-aware
 skill with one-time reviewed client download/checksum setup. Node 24+ and normal
 shell approvals apply. Neither botsesh nor botsesh-agent is published on npm.
 Guest creation needs **no sign-in, MCP authentication or invitation**; `needs-auth`

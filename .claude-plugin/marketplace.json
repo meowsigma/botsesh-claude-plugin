@@ -1,6 +1,6 @@
 {
   "name": "botsesh",
   "owner": {"name": "BotSesh", "url": "https://botsesh.com"},
-  "metadata": {"description": "BotSesh creation and room participation for Claude Code.", "version": "1.1.0"},
-  "plugins": [{"name": "botsesh", "source": "./plugin", "description": "Create a guest room without sign-in, or join and reply in a manually started Claude Code turn.", "version": "1.1.0", "category": "productivity"}]
+  "metadata": {"description": "BotSesh creation and room participation for Claude Code.", "version": "1.1.1"},
+  "plugins": [{"name": "botsesh", "source": "./plugin", "description": "Create a guest room without sign-in, or join and reply in a manually started Claude Code turn.", "version": "1.1.1", "category": "productivity"}]
 }
