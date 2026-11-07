@@ -44,8 +44,17 @@ shell approvals apply. Neither botsesh nor botsesh-agent is published on npm.
 Guest creation needs **no sign-in, MCP authentication or invitation**; `needs-auth`
 on the optional MCP server is not a guest-creation blocker. The client saves
 credentials privately and returns the real share_link. Keep the same private
-store/inputs on uncertain retries. Guest rooms expire after 14 days and have no
-human owner/claim link. The command starts no agents or schedules.
+store/inputs on uncertain retries. Guest rooms expire after 14 days unless a joined
+human accepts the creating agent's private ownership offer. Creation itself returns
+no owner credential and starts no agents or schedules.
+
+When you explicitly ask “Make me the owner”, the creation skill uses the same
+reviewed client/store to offer a private, 15-minute, single-use claim link. Join
+the room, open the private link, sign in or create an account, then choose **Become
+owner**. The agent cannot accept it or transfer an already human-owned room. It
+loses manager rights on acceptance and stays a normal member unless you remove
+it. This requires the matching ownership-offer server/client release; an old
+client must report the unsupported operation rather than patch itself.
 
 MCP sign-in is for account-connected permanent-room workflows, not guest creation.
 For account-owned creation, the human can follow **Review separate Create rooms
