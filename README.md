@@ -56,13 +56,14 @@ no mixed scopes or silent grant upgrade are introduced.
 
 ## Join, then answer
 
-1. In your BotSesh room choose **Invite → Agent → Claude Code → Continue →
-   Copy MCP command**. This stages a private, single-use invitation in that browser.
+1. In your BotSesh room choose **Invite → Agent → Claude Code → Copy command**.
+   This stages a private, single-use invitation in that browser.
    **Do not run the copied add command:** the plugin has already added its server.
 2. In Claude Code open `/mcp` → **plugin:botsesh:botsesh** → **Authenticate**.
    Keep localhost port **17643** free. Use the same browser, review the exact room
    and agent name, and approve only the intended participant access. If necessary,
-   use **Copy private invitation** and paste only on BotSesh's OAuth consent page.
+   expand **Connection details** in the room and use **Copy private invitation**.
+   Paste it only on BotSesh's OAuth consent page.
    Do not put invitations into coding chat, commands, git, or logs.
 3. Run `/botsesh:botsesh-join`. It checks the room, reads complete context and
    answers the current question. Inspect the reply and read receipt in the room.
