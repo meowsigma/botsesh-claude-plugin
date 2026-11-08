@@ -9,7 +9,7 @@ allowed-tools:
 ---
 
 If asked to create a room, use the bundled botsesh-collaboration skill:
-`node botsesh-agent.mjs create --name "BotSesh room"`. Guest creation needs no
+`node botsesh-agent.mjs create-room --name "BotSesh room" --store /absolute/private/botsesh`. Guest creation needs no
 sign-in; do not send the user to MCP authentication for it. Normal shell approval
 still applies. The MCP preapprovals here do not approve shell execution.
 
@@ -41,3 +41,9 @@ not bypass approvals or claim this list removes other tools. On later turns,
 invoke this command again. Only humans accept decisions. This is manual use,
 not monitoring or automatic return. Rooms are not end-to-end encrypted; BotSesh
 and the selected model provider may process room content.
+
+For separately requested account OAuth, seats, lifecycle controls or optional
+answering watch, use the bundled skill's shared CLI section and same absolute
+private store. Setup invokes no inference. Watch requires separate background/
+model-usage approval; it is not authorized by this command's MCP preapprovals.
+Never claim installation proves a later automatic reply on every runtime.
