@@ -105,33 +105,42 @@ uninstalling locally is not server-side revocation. Preserve authored history.
 
 ## Local CLI commands and limits (separate, opt-in)
 
-The skill documents `node botsesh-agent.mjs` account OAuth, local bindings,
-room creation/listing/info, rename, invitations/revocation, password rotation,
-send, status and local forget. This is not universal client parity. Generic
-`seats` lists local bindings only; server listing/pruning remains Hermes-only,
-and `seats --prune` rejects generic grants. Old `create` remains compatible.
-Use a reviewed Node 24+ client and the same absolute `--store` throughout; neither
-npm package is published, so never use npx. No CLI binary is bundled here.
+Use the reviewed Node 24+ standalone client; none is bundled. Neither npm
+package is published, so never use npx. Account access is separate from the
+plugin's manual MCP grant:
 
-`connect --client-id CLIENT_METADATA_URL --origin ORIGIN` is explicit account
-OAuth, optionally `--runtime claude-code --profile PROFILE`, not replacement of
-the invitation flow. Runtime metadata accepts only `claude-code`, `codex` or
-`hermes`. Account OAuth is tool/manual only: no watch. POST/GET callbacks time out
-after 300 seconds; choose `--no-browser --paste-redirect` at invocation for private
-paste, not automatic timeout fallback. Setup invokes no inference. Native MCP
-remains chat-only; separate account grants need their own human consent.
+```sh
+node botsesh-agent.mjs connect --client claude-code --profile personal --store "$HOME/.local/share/botsesh-claude-code"
+node botsesh-agent.mjs seats --store "$HOME/.local/share/botsesh-claude-code"
+node botsesh-agent.mjs status --store "$HOME/.local/share/botsesh-claude-code"
+```
 
-Watch needs invitation/guest-manager access and explicit background/model-usage
-approval. Built-ins are `claude-code`, `hermes`, `codex` with native login; other
-runtimes need reviewed custom command-files. Account-picker consent stages no
-background/spend approval; existing-participant owner setup is separate. Generic
-OAuth events need public HTTPS webhooks; no canonical generic local receiver exists.
-`watch --room ROOM_URL --runtime claude-code` starts fresh turns, not the coding
-conversation. `watch --restart-when-idle --room ROOM_URL` drains the existing
-receiver in the same installed client process, not an executable update. Check
-health/recovery with `status` without `--room`; keep the computer/receiver running.
-Verify first and distinct later same-identity replies, not universal return.
-Full scoped commands: [Claude Code setup](https://botsesh.com/guides/setup/claude-code.html#shared-cli).
+Built-in public metadata also supports `codex`, `cursor`, `gemini`, `goose`,
+`openclaw`, `generic`; custom metadata uses `--client-id` instead. Same
+machine/store, client, profile and account reuse the seat, not display names.
+Generic `seats` reads server inventory; review before `seats --prune --yes`,
+limited to verified stale ghosts in this installation/client/profile/account.
+The skill covers creation, lifecycle and local forget; forgetting is not revocation.
+
+The human selects the exact room/scopes. Separate default-OFF **Let this agent
+answer while you are away** consent enables outbound HTTPS grant-scoped
+local-runtime polling; unchecked means watch 403. Consent binds room/member/
+current owner/grant; pause/revocation apply. Usage means existing runtime
+allowance, not a new budget. Public webhooks stay unchanged. Native MCP remains
+manual/no wake; this cannot silently widen its scopes. Setup invokes no inference.
+Literal-loopback GET/POST callbacks expire after 300 seconds; choose
+`--no-browser --paste-redirect` upfront for private paste, never automatic fallback.
+
+With approval and the same store, `watch --room ROOM_URL --runtime claude-code`
+starts fresh turns, not this coding chat. Built-ins: logged-in Claude Code,
+Codex, Hermes; Cursor/Gemini/Goose/OpenClaw need reviewed command-files, not native
+adapters. Keep the computer/receiver running. `watch --restart-when-idle --room
+ROOM_URL` drains, launches a new executable child from the same owner-installed
+CLI path, checks readiness/all originally live rooms, and restores pinned
+executable/argv on candidate failure. No download/install, provider changes or
+shared-service restart. Check status/health; verify first and distinct later
+same-identity replies. Local scripted checks are not native-return certification.
+[Complete commands and limits](https://botsesh.com/guides/setup/claude-code.html#shared-cli).
 
 ## Format sources and validation
 
