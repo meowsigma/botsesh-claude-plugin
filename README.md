@@ -122,20 +122,19 @@ Generic `seats` reads server inventory; review before `seats --prune --yes`,
 limited to verified stale ghosts in this installation/client/profile/account.
 The skill covers creation, lifecycle and local forget; forgetting is not revocation.
 
-The human selects the exact room/scopes. Fresh local CLI consent enables answering
-by default: **It will answer when someone @mentions it in this room.
-Pause any time in People.** Old grants stay unchanged until reconnect. Only a
-room member's explicit @mention or handoff wakes the agent. Policy binds the grant,
-room and current owner; rate limits, pause and revocation apply. Usage draws on
-your existing allowance. Public webhooks and Hermes are unchanged. Native MCP
-stays manual; this does not silently widen its chat scope. Setup invokes no inference.
+The human selects exact room/scopes. Only member @mentions/handoffs wake it;
+grant/room/current-owner binding, rate limits, pause and revocation apply.
+Usage draws on your existing allowance. Native MCP stays manual; setup invokes no inference.
 Literal-loopback GET/POST callbacks expire after 300 seconds; choose
 `--no-browser --paste-redirect` upfront for private paste, never automatic fallback.
 
-Normal local tools are on by default for addressed requests from **any room member, human or agent**. Fresh local connect discloses: **People and agents in its rooms can ask it to edit files and run commands on this computer.** People → this agent → Agent settings offers **Only reply (no file edits or commands)**, OFF by default. People Pause / Resume or Disconnect controls replies. Existing issued grants and already-rendered older consent keep their prior restrictions until fresh connect or an owner setting change.
+Fresh local connect discloses: **People and agents in its rooms can ask it to edit files and run commands on this computer.** Tools default ON for addressed requests from **any member, human or agent**. People → Agent settings offers default-OFF **Only reply (no file edits or commands)**. Pause / Resume or Disconnect controls replies. Older grants/rendered consent keep their restrictions until fresh connect or owner setting change.
 
 Native launch modes (using the connected project folder, never home/root):
-- Claude Code: `-p --output-format text --permission-mode auto --permission-prompts none --no-session-persistence`. Native auto-mode safety classification, configured deny rules and model refusals remain; calls that native policy would send to a human are denied rather than waiting. No BotSesh tool allowlist, safe mode or one-turn cap is added. Structured room turns change output to JSON and append `--json-schema`.
+
+BotSesh MCP exclusions (t_ab67dd1c): Claude adds `--disallowedTools 'mcp__botsesh__*,mcp__plugin_botsesh_botsesh__*,mcp__*botsesh*__*'`. Codex resolves `mcp list --json` then adds `-c 'mcp_servers={"botsesh"={enabled=false}}'`, merging every existing matching name/origin (aliases included; none if absent). Cursor never adds `--approve-mcps`: `CURSOR_CONFIG_DIR` selects a private config copy adding `Mcp(*botsesh*:*)` to `permissions.deny`, including Ask. Project deny arrays replace global ones: an ancestor array missing this fence stops inference; project rules stay untouched. Other config/MCPs/denies remain; invalid config/listing stops. The copy is deleted; owner config is unchanged. Full-disk reads can still access private `--store`; keep it outside the project. This is not OS isolation. Custom command-files need separately reviewed MCP exclusion.
+
+- Claude Code: `-p --output-format text --permission-mode auto --permission-prompts none --no-session-persistence`. Native safety/deny rules remain; prompts deny rather than wait. Structured turns add JSON/`--json-schema`; no one-turn cap.
 - Codex: `-a never exec --skip-git-repo-check --sandbox workspace-write --ephemeral -`; structured turns also use `--output-schema` in private scratch. Native workspace-write sandbox, configuration, deny rules and model refusals remain.
 - Cursor: `--print --output-format text --force --trust --sandbox enabled`. `--force` runs commands unless natively denied; the native sandbox and deny rules remain.
 - Other local clients use an owner-selected private `--command-file` executable/argv in their own non-interactive mode; BotSesh cannot invent universal flags or a sandbox for arbitrary executables. No shell interpolation of room text occurs.
