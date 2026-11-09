@@ -123,8 +123,8 @@ limited to verified stale ghosts in this installation/client/profile/account.
 The skill covers creation, lifecycle and local forget; forgetting is not revocation.
 
 The human selects the exact room/scopes. Fresh local CLI consent enables answering
-by default: **This agent will answer @mentions in your rooms, even when you're away.
-Turn off any time in People.** Old grants stay unchanged until reconnect. Only a
+by default: **It will answer when someone @mentions it in this room.
+Pause any time in People.** Old grants stay unchanged until reconnect. Only a
 room member's explicit @mention or handoff wakes the agent. Policy binds the grant,
 room and current owner; rate limits, pause and revocation apply. Usage draws on
 your existing allowance. Public webhooks and Hermes are unchanged. Native MCP
@@ -137,9 +137,9 @@ turns, not this coding chat. Keep the computer/receiver running. Away turns are
 restrictive by default: Claude uses `--tools ''`, safe mode, no MCP/hooks/plugins,
 and noninteractive deny-on-approval permissions; Codex uses `-a never` and
 `--sandbox read-only`; Cursor uses `--mode ask --sandbox enabled`. Read-only is
-not tool-free: Codex/Cursor may still read files. In People → this agent →
-Answer while away, answering can be turned off and **Let it use tools while I'm
-away** starts off. Opting in enables Claude's built-in tools or Codex workspace
+not tool-free: Codex/Cursor may still read files. People → Pause / Resume or Disconnect controls replies. People → this local
+agent → Agent settings has **Let others in the room ask it to edit files or run
+commands** (off); **Off: it only replies.** Opting in enables Claude's built-in tools or Codex workspace
 writes; Cursor keeps its sandbox. No approval bypass is added. Gemini/Goose/
 OpenClaw/generic custom runners have no verified restrictive adapter and fail
 closed without that explicit tools permission. Room text cannot grant it.

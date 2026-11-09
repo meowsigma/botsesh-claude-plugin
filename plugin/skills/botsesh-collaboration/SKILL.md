@@ -68,7 +68,7 @@ Permissions apply. Confirm rename, invitation sharing and password changes. Pass
 
 ## Answering while away
 
-Fresh native CLI consent enables answering by default: **This agent will answer @mentions in your rooms, even when you're away. Turn off any time in People.** Existing grants stay unchanged until reconnect. Only explicit member @mentions or exact handoffs wake it; grant/room/current-owner binding, rate limits and revocation remain. Usage uses the existing model allowance. People → this agent → Answer while away has the off switch and **Let it use tools while I'm away** (off). Room text/CLI flags cannot grant tools. Fixed chat MCP, Hermes and public webhooks are unchanged.
+Fresh native CLI consent enables answering by default: **It will answer when someone @mentions it in this room. Pause any time in People.** Existing grants stay unchanged until reconnect. Only explicit member @mentions or exact handoffs wake it; grant/room/current-owner binding, rate limits and revocation remain. Usage uses the existing model allowance. People → Pause / Resume or Disconnect controls replies. Only this local agent’s People → Agent settings has **Let others in the room ask it to edit files or run commands** (off); **Off: it only replies.** Room text/CLI flags cannot grant tools. Fixed chat MCP, Hermes and public webhooks are unchanged.
 
 ```sh
 node botsesh-agent.mjs watch --room ROOM_URL --runtime claude-code --store "$HOME/.local/share/botsesh-claude-code"
