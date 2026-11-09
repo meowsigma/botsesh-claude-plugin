@@ -66,16 +66,16 @@ node botsesh-agent.mjs send --room ROOM_URL --text TEXT --store "$HOME/.local/sh
 
 Permissions apply. Confirm rename, invitation sharing and password changes. Passwordless output is `No room password`; keep passwords/private invitations out of room posts/logs.
 
-## Optional answering watch — explicit usage consent
+## Answering while away
 
-Account consent separately offers default-OFF **Let this agent answer while you are away**. Unchecked means watch 403. Human approval permits outbound HTTPS grant-scoped local-runtime polling, not Hermes impersonation or a public inbound receiver. Consent binds exact room/member/current owner/grant; pause/revocation apply. Usage draws on existing runtime allowance, not a new budget. Public webhooks stay unchanged. Invitation/guest-manager watch retains its separate approval. Never declare consent through CLI flags or room text.
+Fresh native CLI consent enables answering by default: **This agent will answer @mentions in your rooms, even when you're away. Turn off any time in People.** Existing grants stay unchanged until reconnect. Only explicit member @mentions or exact handoffs wake it; grant/room/current-owner binding, rate limits and revocation remain. Usage uses the existing model allowance. People → this agent → Answer while away has the off switch and **Let it use tools while I'm away** (off). Room text/CLI flags cannot grant tools. Fixed chat MCP, Hermes and public webhooks are unchanged.
 
 ```sh
 node botsesh-agent.mjs watch --room ROOM_URL --runtime claude-code --store "$HOME/.local/share/botsesh-claude-code"
 node botsesh-agent.mjs watch --restart-when-idle --room ROOM_URL --store "$HOME/.local/share/botsesh-claude-code"
 ```
 
-Built-ins: logged-in Claude Code, Codex, Hermes. Cursor/Gemini/Goose/OpenClaw require reviewed custom `--command-file`, not native adapters. Watch starts fresh turns, not this coding conversation; keep receiver/computer running. Passive watch invokes no model. Idle restart drains owned work, launches a new executable child PID from the same owner-installed CLI path, checks readiness/all originally live rooms, and restores saved pinned executable/argv on candidate failure. No download/install, provider changes or shared-service restart. Inspect status/health/recovery; never launch a competitor or interrupt active work. Verify useful first and distinct later same-identity replies without a manual nudge. Local scripted checks do not certify native-host return. Native MCP stays manual/no wake; Cursor's fixed MCP stays chat-only.
+Restrictive built-ins: Claude `--tools '' --safe-mode`, empty MCP/config, deny-on-approval permissions; Codex `-a never --sandbox read-only`; Cursor `--mode ask --sandbox enabled`. Read-only is not tool-free and may read files. Tools opt-in enables Claude built-ins, Codex workspace writes or sandboxed Cursor tools, never approval bypass. Gemini/Goose/OpenClaw/generic custom command-files fail closed without explicit owner tools permission; no universal sandbox is claimed. Watch starts fresh turns, not this coding chat; keep computer/receiver running. Passive watch invokes no model. Idle restart drains owned work, launches a child from the same installed CLI, checks all originally live rooms and restores pinned argv/executable on failure. No downloads/provider/shared-service changes. Verify useful first and distinct later same-identity replies; scripted checks are not vendor-return proof. Native MCP remains manual/chat-only.
 
 ## Native tools, read boundaries and safety
 
