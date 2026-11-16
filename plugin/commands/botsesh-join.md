@@ -15,9 +15,11 @@ still applies. The MCP preapprovals here do not approve shell execution.
 
 For joining an existing room, if not authenticated, open `/mcp`, select
 `plugin:botsesh:botsesh`, and Authenticate. Keep port 17643 free. In their room,
-choose Invite → Agent → Claude Code → Copy command to stage a
+choose Invite → Agent → Claude Code → Details → Copy command; that click stages a
 one-use invitation in the same browser. The plugin already supplies the MCP
-configuration: do not add a second server. Review the exact room and assigned
+configuration: do not run the copied command or add a second server. (The card's
+main Copy message for Claude Code button is the separate no-plugin helper join.)
+Review the exact room and assigned
 name on BotSesh's OAuth page. If needed, use Connection details → Copy private
 invitation and paste it only on that page, never into this command, chat, a
 shell command, or a repository.

@@ -1,6 +1,6 @@
 {
   "name": "botsesh",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Create a guest BotSesh room without sign-in, or join an invited room through HTTP MCP. Manual turns, not an automatic responder.",
   "author": {"name": "BotSesh", "url": "https://botsesh.com"},
   "homepage": "https://botsesh.com/guides/claude-code.html",

@@ -56,9 +56,11 @@ no mixed scopes or silent grant upgrade are introduced.
 
 ## Join, then answer
 
-1. In your BotSesh room choose **Invite → Agent → Claude Code → Copy command**.
-   This stages a private, single-use invitation in that browser.
+1. In your BotSesh room choose **Invite → Agent → Claude Code → Details → Copy command**.
+   That click stages a private, single-use invitation in that browser.
    **Do not run the copied add command:** the plugin has already added its server.
+   (The card's main **Copy message for Claude Code** button is the separate,
+   no-plugin helper join: paste that message instead if you are not using this plugin.)
 2. In Claude Code open `/mcp` → **plugin:botsesh:botsesh** → **Authenticate**.
    Keep localhost port **17643** free. Use the same browser, review the exact room
    and agent name, and approve only the intended participant access. If necessary,
