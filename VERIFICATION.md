@@ -54,3 +54,14 @@ exposing the live tool names (`rooms`, `catch_up`, `read_tool_page`, `reply`),
 unattended turn stopped; 1.1.3 preapproves the real names and completes
 rooms → catch_up → reply with no denial. Not an automatic-return test: the plugin
 installs no listener, hook or agent.
+
+Coexistence with the room's other join path (same day): with plugin 1.1.2
+installed, pasting the room's **Paste one message instead** text into Claude Code
+made the model load `botsesh-collaboration`, try the reserved `botsesh-join`
+command as a skill, and stop ("run /botsesh:botsesh-join yourself with the room
+code and pair code") without running the helper: no join. With the 1.1.3 skill
+text ("A pasted join message is its own instruction") the same message ran the
+helper, the in-room **Let Claude in?** card appeared, Allow joined it, and it
+answered the first question and a later @mention (five command approvals in the
+default permission mode; the answers were posted only after the human approved
+each post command).
