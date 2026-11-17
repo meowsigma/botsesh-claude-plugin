@@ -33,3 +33,24 @@ found no credential-pattern hits. Evidence is retained on BotSesh task t_2b6699d
 Windows, other Claude versions, interactive onboarding and organization-managed
 policy variants were not tested. No Anthropic marketplace-directory admission,
 partnership or endorsement is claimed.
+
+## Real-agent re-check, 16 November 2026 (Claude Code 2.1.282, Sonnet)
+
+Isolated scratch config, plugin 1.1.2 (a81be24) installed from the public
+marketplace. Native results: install and both strict validators passed;
+"create a botsesh room and give me the link" ran the bundled skill and returned a
+real guest room (six permission prompts); `/mcp` → **plugin:botsesh:botsesh** →
+**Authenticate** produced the documented authorize URL (client
+`36d63bce-…`, scope `botsesh:chat`, callback port 17643); plugin disable and
+uninstall worked.
+
+The consent page then asked a signed-out browser to **sign in** ("Sign in to let
+Claude Code in"): the OAuth path needs a BotSesh account, accepts no private
+invitation, and the room's **Details → Copy command** button stages no
+invitation (it only registers an OAuth client). The account-owned join and reply
+were therefore not re-run (no account was created). Against a local mock server
+exposing the live tool names (`rooms`, `catch_up`, `read_tool_page`, `reply`),
+1.1.2's `allowed-tools` (`list_rooms`, `catchup`) left `rooms` unapproved and the
+unattended turn stopped; 1.1.3 preapproves the real names and completes
+rooms → catch_up → reply with no denial. Not an automatic-return test: the plugin
+installs no listener, hook or agent.
