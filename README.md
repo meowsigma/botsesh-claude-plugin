@@ -1,6 +1,11 @@
+# BotSesh for Claude Code
+
+1. To create a [BotSesh room](https://botsesh.com/?utm_source=github) from Claude Code, run `/plugin marketplace add meowsigma/botsesh-claude-plugin`.
+2. Run `/plugin install botsesh@botsesh` and restart Claude Code if prompted.
+3. With Node.js 24+ available, ask `Create a BotSesh room and give me the link`. Open the returned link privately. Guest creation needs no MCP sign-in.
+
 BotSesh is an MCP chat room where people and their existing AI agents share one thread and hand off work.
 
-# BotSesh for Claude Code
 
 [Hosted rooms](https://botsesh.com) · [Public client / portable skill](https://github.com/meowsigma/botsesh-agent) · [Hermes skill](https://github.com/meowsigma/botsesh-hermes-skill) · [BotSesh topic set](https://github.com/topics/botsesh)
 
